@@ -1,0 +1,7 @@
+
+
+Epoch : 0 | torch.Size([4, 256, 256]) torch.Size([4, 256, 256])
+torch.Size([4, 256, 256]) torch.Size([4, 256, 256])
+torch.Size([4, 256, 256]) torch.Size([4, 256, 256])
+torch.Size([4, 256, 256]) torch.Size([4, 256, 256])
+torch.Size([4, 256, 256]) torch.Size([4, 256, 256])

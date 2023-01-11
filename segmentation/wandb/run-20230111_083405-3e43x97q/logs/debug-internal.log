@@ -1,0 +1,219 @@
+2023-01-11 08:34:05,469 INFO    StreamThr :2890 [internal.py:wandb_internal():88] W&B internal server running at pid: 2890, started at: 2023-01-11 08:34:05.467142
+2023-01-11 08:34:05,471 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: status
+2023-01-11 08:34:05,473 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: status
+2023-01-11 08:34:05,474 INFO    WriterThread:2890 [datastore.py:open_for_write():75] open: /Users/imlim/Aiffel/segmentation/wandb/run-20230111_083405-3e43x97q/run-3e43x97q.wandb
+2023-01-11 08:34:05,475 DEBUG   SenderThread:2890 [sender.py:send():303] send: header
+2023-01-11 08:34:05,475 DEBUG   SenderThread:2890 [sender.py:send():303] send: run
+2023-01-11 08:34:06,186 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: check_version
+2023-01-11 08:34:06,192 INFO    SenderThread:2890 [dir_watcher.py:__init__():216] watching files in: /Users/imlim/Aiffel/segmentation/wandb/run-20230111_083405-3e43x97q/files
+2023-01-11 08:34:06,192 INFO    SenderThread:2890 [sender.py:_start_run_threads():928] run started: 3e43x97q with start time 1673393645.459635
+2023-01-11 08:34:06,192 DEBUG   SenderThread:2890 [sender.py:send():303] send: summary
+2023-01-11 08:34:06,193 INFO    SenderThread:2890 [sender.py:_save_file():1171] saving file wandb-summary.json with policy end
+2023-01-11 08:34:06,193 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: check_version
+2023-01-11 08:34:06,247 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: run_start
+2023-01-11 08:34:06,255 DEBUG   HandlerThread:2890 [system_info.py:__init__():31] System info init
+2023-01-11 08:34:06,256 DEBUG   HandlerThread:2890 [system_info.py:__init__():46] System info init done
+2023-01-11 08:34:06,256 INFO    HandlerThread:2890 [system_monitor.py:start():150] Starting system monitor
+2023-01-11 08:34:06,256 INFO    SystemMonitor:2890 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2023-01-11 08:34:06,256 INFO    HandlerThread:2890 [system_monitor.py:probe():168] Collecting system info
+2023-01-11 08:34:06,256 INFO    SystemMonitor:2890 [interfaces.py:start():168] Started cpu
+2023-01-11 08:34:06,257 DEBUG   HandlerThread:2890 [system_info.py:probe():195] Probing system
+2023-01-11 08:34:06,257 INFO    SystemMonitor:2890 [interfaces.py:start():168] Started disk
+2023-01-11 08:34:06,257 INFO    SystemMonitor:2890 [interfaces.py:start():168] Started gpuapple
+2023-01-11 08:34:06,259 INFO    SystemMonitor:2890 [interfaces.py:start():168] Started memory
+2023-01-11 08:34:06,260 INFO    SystemMonitor:2890 [interfaces.py:start():168] Started network
+2023-01-11 08:34:06,261 DEBUG   HandlerThread:2890 [git.py:repo():40] git repository is invalid
+2023-01-11 08:34:06,261 DEBUG   HandlerThread:2890 [system_info.py:probe():241] Probing system done
+2023-01-11 08:34:06,261 DEBUG   HandlerThread:2890 [system_monitor.py:probe():177] {'os': 'macOS-12.6.1-arm64-arm-64bit', 'python': '3.9.15', 'heartbeatAt': '2023-01-10T23:34:06.257238', 'startedAt': '2023-01-10T23:34:05.450009', 'docker': None, 'cuda': None, 'args': None, 'state': 'running', 'program': 'segmentation/tmp-jvsc-e3029119-9656-451b-90d2-6050d8c684fa2ec41b6a-a1d5-49d5-9b60-c28e6c36e4d7.ipynb', 'root': '/Users/imlim/Aiffel', 'host': 'imLims-MacBookPro.local', 'username': 'imlim', 'executable': '/opt/homebrew/Caskroom/miniconda/base/envs/Torch/bin/python', 'cpu_count': 8, 'cpu_count_logical': 8, 'disk': {'total': 228.27386474609375, 'used': 86.8196792602539}, 'gpuapple': {'type': 'arm', 'vendor': 'Apple'}, 'memory': {'total': 16.0}}
+2023-01-11 08:34:06,261 INFO    HandlerThread:2890 [system_monitor.py:probe():178] Finished collecting system info
+2023-01-11 08:34:06,261 INFO    HandlerThread:2890 [system_monitor.py:probe():181] Publishing system info
+2023-01-11 08:34:06,261 DEBUG   HandlerThread:2890 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-01-11 08:34:06,262 DEBUG   HandlerThread:2890 [system_info.py:_save_pip():67] Saving pip packages done
+2023-01-11 08:34:06,262 DEBUG   HandlerThread:2890 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-01-11 08:34:06,779 DEBUG   HandlerThread:2890 [system_info.py:_save_conda():86] Saving conda packages done
+2023-01-11 08:34:06,780 INFO    HandlerThread:2890 [system_monitor.py:probe():183] Finished publishing system info
+2023-01-11 08:34:06,782 DEBUG   SenderThread:2890 [sender.py:send():303] send: files
+2023-01-11 08:34:06,782 INFO    SenderThread:2890 [sender.py:_save_file():1171] saving file wandb-metadata.json with policy now
+2023-01-11 08:34:06,788 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:34:06,788 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:34:06,792 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:34:06,792 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:34:06,792 INFO    HandlerThread:2890 [system_monitor.py:finish():160] Stopping system monitor
+2023-01-11 08:34:06,811 DEBUG   SystemMonitor:2890 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2023-01-11 08:34:06,811 DEBUG   SystemMonitor:2890 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2023-01-11 08:34:06,811 DEBUG   SystemMonitor:2890 [system_monitor.py:_start():141] Publishing last batch of metrics
+2023-01-11 08:34:06,812 INFO    HandlerThread:2890 [interfaces.py:finish():173] Joined cpu
+2023-01-11 08:34:06,812 INFO    HandlerThread:2890 [interfaces.py:finish():173] Joined disk
+2023-01-11 08:34:06,812 INFO    HandlerThread:2890 [interfaces.py:finish():173] Joined gpuapple
+2023-01-11 08:34:06,812 INFO    HandlerThread:2890 [interfaces.py:finish():173] Joined memory
+2023-01-11 08:34:06,812 INFO    HandlerThread:2890 [interfaces.py:finish():173] Joined network
+2023-01-11 08:34:07,015 DEBUG   SenderThread:2890 [sender.py:send():303] send: telemetry
+2023-01-11 08:34:07,017 DEBUG   SenderThread:2890 [sender.py:send():303] send: telemetry
+2023-01-11 08:34:07,017 DEBUG   SenderThread:2890 [sender.py:send():303] send: stats
+2023-01-11 08:34:07,203 INFO    Thread-13 :2890 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/imlim/Aiffel/segmentation/wandb/run-20230111_083405-3e43x97q/files/wandb-summary.json
+2023-01-11 08:34:07,203 INFO    Thread-13 :2890 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/imlim/Aiffel/segmentation/wandb/run-20230111_083405-3e43x97q/files/wandb-metadata.json
+2023-01-11 08:34:07,203 INFO    Thread-13 :2890 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/imlim/Aiffel/segmentation/wandb/run-20230111_083405-3e43x97q/files/conda-environment.yaml
+2023-01-11 08:34:07,204 INFO    Thread-13 :2890 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/imlim/Aiffel/segmentation/wandb/run-20230111_083405-3e43x97q/files/requirements.txt
+2023-01-11 08:34:07,530 INFO    Thread-16 :2890 [upload_job.py:push():143] Uploaded file /var/folders/n7/_ggctndx37x4dg7tddzm4d9m0000gn/T/tmpq1sdvupywandb/25oikcwi-wandb-metadata.json
+2023-01-11 08:34:22,024 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:34:22,043 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:34:33,926 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:34:33,926 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:34:33,931 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:34:33,931 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:34:36,316 INFO    Thread-13 :2890 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/imlim/Aiffel/segmentation/wandb/run-20230111_083405-3e43x97q/files/config.yaml
+2023-01-11 08:34:37,265 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:34:37,266 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:34:52,514 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:34:52,514 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:35:07,843 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:35:07,844 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:35:23,079 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:35:23,080 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:35:38,307 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:35:38,307 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:35:53,542 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:35:53,542 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:36:08,774 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:36:08,774 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:36:24,028 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:36:24,029 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:36:39,280 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:36:39,280 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:36:54,507 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:36:54,508 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:37:09,753 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:37:09,754 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:37:24,997 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:37:24,998 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:37:40,231 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:37:40,231 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:37:55,483 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:37:55,484 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:38:10,711 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:38:10,711 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:38:25,932 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:38:25,932 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:38:41,164 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:38:41,165 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:38:56,394 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:38:56,394 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:39:01,319 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:39:01,319 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:39:01,336 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:39:01,336 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:39:11,625 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:39:11,626 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:39:17,893 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:39:17,893 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:39:17,894 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:39:17,894 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:39:21,237 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:39:21,238 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:39:21,238 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:39:21,238 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:39:25,207 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:39:25,207 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:39:25,209 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:39:25,209 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:39:26,859 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:39:26,860 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:39:42,104 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:39:42,104 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:39:44,476 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:39:44,476 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:39:44,480 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:39:44,480 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:39:57,331 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:39:57,332 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:40:06,238 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:40:06,239 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:40:06,394 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:40:06,394 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:40:06,679 INFO    Thread-13 :2890 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/imlim/Aiffel/segmentation/wandb/run-20230111_083405-3e43x97q/files/output.log
+2023-01-11 08:40:08,689 INFO    Thread-13 :2890 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/imlim/Aiffel/segmentation/wandb/run-20230111_083405-3e43x97q/files/output.log
+2023-01-11 08:40:12,602 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:40:12,603 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:40:27,835 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:40:27,836 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:40:43,065 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:40:43,065 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:40:58,285 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:40:58,285 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:40:59,460 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:40:59,460 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:40:59,510 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:40:59,510 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:41:01,719 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:41:01,719 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:41:01,729 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:41:01,729 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:41:13,523 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:41:13,524 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:41:23,592 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:41:23,592 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:41:23,594 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:41:23,595 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:41:25,590 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:41:25,590 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:41:25,591 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:41:25,591 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:41:28,756 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:41:28,756 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:41:35,297 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:41:35,297 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:41:35,307 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:41:35,307 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:41:43,978 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:41:43,979 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:41:44,589 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:41:44,589 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:41:44,595 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:41:44,595 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:41:59,222 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:41:59,222 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:42:14,450 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:42:14,450 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:42:25,145 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:42:25,145 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:42:25,146 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:42:25,146 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:42:27,243 INFO    Thread-13 :2890 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/imlim/Aiffel/segmentation/wandb/run-20230111_083405-3e43x97q/files/output.log
+2023-01-11 08:42:29,833 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:42:29,834 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:42:31,644 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:42:31,644 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:42:31,819 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:42:31,819 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:42:33,329 INFO    Thread-13 :2890 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/imlim/Aiffel/segmentation/wandb/run-20230111_083405-3e43x97q/files/output.log
+2023-01-11 08:42:38,505 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:42:38,505 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:42:38,511 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:42:38,511 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:42:42,046 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:42:42,046 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:42:42,221 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:42:42,221 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:42:43,540 INFO    Thread-13 :2890 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/imlim/Aiffel/segmentation/wandb/run-20230111_083405-3e43x97q/files/output.log
+2023-01-11 08:42:45,080 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:42:45,080 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:43:00,305 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:43:00,305 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:43:00,845 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: resume
+2023-01-11 08:43:00,845 INFO    HandlerThread:2890 [handler.py:handle_request_resume():687] starting system metrics thread or process
+2023-01-11 08:43:00,846 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: pause
+2023-01-11 08:43:00,846 INFO    HandlerThread:2890 [handler.py:handle_request_pause():696] stopping system metrics thread or process
+2023-01-11 08:43:03,062 INFO    Thread-13 :2890 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/imlim/Aiffel/segmentation/wandb/run-20230111_083405-3e43x97q/files/output.log
+2023-01-11 08:43:15,521 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:43:15,522 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:43:30,773 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:43:30,774 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:43:49,135 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:43:49,135 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:44:04,357 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:44:04,357 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:44:19,597 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:44:19,597 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:44:34,831 DEBUG   HandlerThread:2890 [handler.py:handle_request():139] handle_request: stop_status
+2023-01-11 08:44:34,832 DEBUG   SenderThread:2890 [sender.py:send_request():317] send_request: stop_status
+2023-01-11 08:44:50,637 INFO    MainThread:2890 [internal.py:handle_exit():78] Internal process exited
