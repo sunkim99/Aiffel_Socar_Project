@@ -77,8 +77,7 @@ def visual_mask(pred: torch.Tensor, target: torch.Tensor):
 
 
 def visual_dataset(image, label):
-    image = ((image) * 0.5 + 0.5) * 255
-    image = image.permute(1, 2, 0)
+    image = image.permute(1, 2, 0) * 255
     label = label.permute(1, 2, 0) * 255
     
     
@@ -108,3 +107,9 @@ def visual_dataset(image, label):
         ax[2].set_title('Mask')
         
     plt.show()
+
+
+def make_mask(pred, label):
+    pred = ((torch.sigmoid(pred) > 0.5).float().cpu().permute(0, 2, 3, 1) * 255).cpu().numpy().squeeze(3)
+    label = (label.permute(0, 2, 3, 1) * 255).float().cpu().numpy().squeeze(3)
+    return pred, label

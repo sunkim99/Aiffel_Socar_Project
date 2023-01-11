@@ -42,4 +42,4 @@ def PixelAccuracy(model: torch.nn.Module, outputs: torch.Tensor, labels: torch.T
     num_correct = (outputs == labels).sum()
     num_pixels = torch.numel(labels)
 
-    return num_correct / num_pixels
+    return (num_correct / num_pixels) * 100

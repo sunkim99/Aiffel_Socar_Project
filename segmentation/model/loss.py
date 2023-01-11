@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 
 class DiceBCELoss(nn.Module):
@@ -17,7 +18,8 @@ class DiceBCELoss(nn.Module):
     def forward(self, inputs: torch.Tensor, targets: torch.Tensor, smooth: int = 1) -> torch.Tensor:
         
         #comment out if your model contains a sigmoid or equivalent activation layer
-        inputs = torch.sigmoid(inputs)       
+        inputs = torch.sigmoid(inputs).float()
+        targets = targets.float()
         
         #flatten label and prediction tensors
         inputs = inputs.view(-1)
@@ -25,7 +27,7 @@ class DiceBCELoss(nn.Module):
         
         intersection = (inputs * targets).sum()                            
         dice_loss = 1 - (2.*intersection + smooth)/(inputs.sum() + targets.sum() + smooth)  
-        BCE = torch.binary_cross_entropy(inputs, targets, reduction='mean')
+        BCE = F.binary_cross_entropy(inputs, targets, reduction='mean')
         Dice_BCE = BCE + dice_loss
         
         return Dice_BCE
