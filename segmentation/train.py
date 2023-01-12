@@ -37,14 +37,16 @@ class Trainer:
 
         self.epochs = len_epoch
         
-        self.save_dir = save_dir
 
+        self.save_dir = save_dir
         self.idx = 1
         while Path(self.save_dir).is_dir() == True:
             self.save_dir = re.sub('[0-9]+',f'{self.idx}', self.save_dir)
             self.idx += 1
+        
+        self.save_dir = Path(self.save_dir)
+        self.save_dir.mkdir(parents=True, exist_ok=True)
 
-        Path(self.save_dir).mkdir(parents=True, exist_ok=True)
 
         self.es_log = {'train_loss' : [], 'val_loss' : []}
 
