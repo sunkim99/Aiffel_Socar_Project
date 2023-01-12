@@ -1,3 +1,4 @@
+import re
 import numpy as np
 import torch
 import wandb
@@ -35,8 +36,17 @@ class Trainer:
         self.optimizer = optimizer
 
         self.epochs = len_epoch
+        
 
         self.save_dir = save_dir
+        self.idx = 1
+        while Path(self.save_dir).is_dir() == True:
+            self.save_dir = re.sub('[0-9]+',f'{self.idx}', self.save_dir)
+            self.idx += 1
+        
+        self.save_dir = Path(self.save_dir)
+        self.save_dir.mkdir(parents=True, exist_ok=True)
+
 
         self.es_log = {'train_loss' : [], 'val_loss' : []}
 
@@ -124,7 +134,7 @@ class Trainer:
                     pred_mask = pred_mask.astype('int')
                     target_mask = target_mask.astype('int')
 
-                    for i in range(4):
+                    for i in range(wandb_img.shape[0]):
                         
                         class_labels = {
                             0: "BackGround",
@@ -161,7 +171,6 @@ class Trainer:
         wandb.finish()
 
     def _save_checkpoint(self, epoch, save_best=False):
-        Path(self.save_dir).mkdir(parents=True, exist_ok=True)
             
         filename = str(self.save_dir / 'Epoch_{}.pth'.format(epoch))
         torch.save(self.model.state_dict(), filename)
