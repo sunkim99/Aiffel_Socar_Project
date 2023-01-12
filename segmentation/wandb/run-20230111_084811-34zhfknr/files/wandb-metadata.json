@@ -1,0 +1,28 @@
+{
+    "os": "macOS-12.6.1-arm64-arm-64bit",
+    "python": "3.9.15",
+    "heartbeatAt": "2023-01-10T23:48:11.798075",
+    "startedAt": "2023-01-10T23:48:11.195893",
+    "docker": null,
+    "cuda": null,
+    "args": null,
+    "state": "running",
+    "program": "segmentation/tmp-jvsc-acf2afa2-ac07-4423-8105-7f5fe70ce917cc1b9078-bbc0-43d8-9832-17e417a8447c.ipynb",
+    "root": "/Users/imlim/Aiffel",
+    "host": "imLims-MacBookPro.local",
+    "username": "imlim",
+    "executable": "/opt/homebrew/Caskroom/miniconda/base/envs/Torch/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 8,
+    "disk": {
+        "total": 228.27386474609375,
+        "used": 86.8504524230957
+    },
+    "gpuapple": {
+        "type": "arm",
+        "vendor": "Apple"
+    },
+    "memory": {
+        "total": 16.0
+    }
+}
