@@ -135,7 +135,7 @@ class Trainer:
                     target_mask = target_mask.astype('int')
                     
 
-                    for i in range(wandb_img.shape[0] % 4):
+                    for i in range(wandb_img.shape[0]):
                         
 
                         class_labels = {
