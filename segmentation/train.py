@@ -7,7 +7,6 @@ from typing import List, Union
 from timeit import default_timer as timer
 from pathlib import Path
 from utils.visual import *
-from torchvision.transforms import transforms
 
 
 class Trainer:
@@ -136,7 +135,7 @@ class Trainer:
                     target_mask = target_mask.astype('int')
                     
 
-                    for i in range(wandb_img.shape[0]):
+                    for i in range(wandb_img.shape[0] % 4):
                         
 
                         class_labels = {
@@ -151,7 +150,8 @@ class Trainer:
                             {"name" : "Ground Truth", "id" : 2}
                         ])
                         
-                        
+                        print(wandb_img.shape, pred_mask.shape, target_mask.shape)
+
                         example = wandb.Image(wandb_img[i], masks={"Mask" : {"mask_data" : pred_mask[i], "class_labels" : class_labels}, "ground_truth" : {"mask_data" : target_mask[i], "class_labels" : class_labels}}, classes=class_set)
                         examples.append(example)
             
