@@ -28,8 +28,8 @@ class Custom_dataset(torch.utils.data.Dataset):
         self.data_dir = data_dir
         self.transform = transform
         
-        self.image_dir = self.data_dir + 'image'
-        self.label_dir = self.data_dir + 'label'
+        self.image_dir = self.data_dir + 'images'
+        self.label_dir = self.data_dir + 'masks'
         
         lst_image = os.listdir(self.image_dir)
         lst_label = os.listdir(self.label_dir)

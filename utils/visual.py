@@ -110,6 +110,6 @@ def visual_dataset(image, label):
 
 
 def make_mask(pred, label):
-    pred = ((torch.sigmoid(pred) > 0.5).float().cpu().permute(0, 2, 3, 1) * 255).cpu().numpy().squeeze(3)
-    label = (label.permute(0, 2, 3, 1) * 255).float().cpu().numpy().squeeze(3)
+    pred = ((torch.sigmoid(pred) > 0.5).float().cpu().permute(0, 2, 3, 1) * 1).cpu().numpy().squeeze(3)
+    label = (label.permute(0, 2, 3, 1) * 2).float().cpu().numpy().squeeze(3)
     return pred, label

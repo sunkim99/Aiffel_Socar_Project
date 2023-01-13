@@ -7,6 +7,7 @@ from typing import List, Union
 from timeit import default_timer as timer
 from pathlib import Path
 from utils.visual import *
+from torchvision.transforms import transforms
 
 
 class Trainer:
@@ -63,7 +64,7 @@ class Trainer:
         for batch, data in enumerate(self.data_loader):
             x_train = data['input']
             y_train = data['label']
-            x_train, y_train = x_train.to(self.device), y_train.to(self.device).long()
+            x_train, y_train = x_train.to(self.device), y_train.to(self.device)
             y_pred = self.model(x_train)
             loss = self.criterion(y_pred, y_train)
 
@@ -117,7 +118,7 @@ class Trainer:
             for batch, data in enumerate(self.valid_data_loader):
                 x_test = data['input']
                 y_test = data['label']
-                x_test, y_test = x_test.to(self.device), y_test.to(self.device).long()
+                x_test, y_test = x_test.to(self.device), y_test.to(self.device)
                 y_pred = self.model(x_test)
                 loss = self.criterion(y_pred, y_test)
 
@@ -133,20 +134,25 @@ class Trainer:
                     
                     pred_mask = pred_mask.astype('int')
                     target_mask = target_mask.astype('int')
+                    
 
                     for i in range(wandb_img.shape[0]):
                         
+
                         class_labels = {
                             0: "BackGround",
-                            255: "Damage"
+                            1: "Damage",
+                            2: "Ground Truth"
                         }
 
                         class_set = wandb.Classes([
                             {"name" : "BackGround", "id" : 0},
-                            {"name" : "Damage", "id" : 1}
+                            {"name" : "Damage", "id" : 1},
+                            {"name" : "Ground Truth", "id" : 2}
                         ])
-
-                        example = wandb.Image(wandb_img[i], masks={"prediction" : {"mask_data" : pred_mask[i], "class_labels" : class_labels}, "ground_truth" : {"mask_data" : target_mask[i], "class_labels" : class_labels}}, classes=class_set)
+                        
+                        
+                        example = wandb.Image(wandb_img[i], masks={"Mask" : {"mask_data" : pred_mask[i], "class_labels" : class_labels}, "ground_truth" : {"mask_data" : target_mask[i], "class_labels" : class_labels}}, classes=class_set)
                         examples.append(example)
             
             val_loss /= len(self.valid_data_loader)
