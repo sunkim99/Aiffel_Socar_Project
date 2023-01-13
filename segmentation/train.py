@@ -1,9 +1,13 @@
+import re
 import numpy as np
 import torch
 import wandb
 from torch.utils.data import dataloader
 from typing import List, Union
 from timeit import default_timer as timer
+from pathlib import Path
+from utils.visual import *
+from torchvision.transforms import transforms
 
 
 class Trainer:
@@ -33,14 +37,23 @@ class Trainer:
         self.optimizer = optimizer
 
         self.epochs = len_epoch
+        
 
         self.save_dir = save_dir
+        self.idx = 1
+        while Path(self.save_dir).is_dir() == True:
+            self.save_dir = re.sub('[0-9]+',f'{self.idx}', self.save_dir)
+            self.idx += 1
+        
+        self.save_dir = Path(self.save_dir)
+        self.save_dir.mkdir(parents=True, exist_ok=True)
+
 
         self.es_log = {'train_loss' : [], 'val_loss' : []}
 
         self.not_improved = 0
-        self.early_stop = 10
-        self.save_period = 10
+        self.early_stop = 30
+        self.save_period = 5
         self.mnt_best = np.inf
 
     def _train_epoch(self, epoch: int):
@@ -51,7 +64,7 @@ class Trainer:
         for batch, data in enumerate(self.data_loader):
             x_train = data['input']
             y_train = data['label']
-            x_train, y_train = x_train.to(self.device), y_train.to(self.device).long()
+            x_train, y_train = x_train.to(self.device), y_train.to(self.device)
             y_pred = self.model(x_train)
             loss = self.criterion(y_pred, y_train)
 
@@ -68,16 +81,16 @@ class Trainer:
 
         train_loss /= len(self.data_loader)
         train_iou, train_pa = list(map(lambda x: sum(x) / len(self.data_loader), train_metric.values()))
-        print(f'Train Loss : {train_loss:.5f} | Train P.A : {train_pa:.5f}% | Train IOU : {train_iou:.5f} | ', end='')
+        print(f'Train Loss : {train_loss:.5f} | Train P.A : {train_pa:.2f}% | Train IOU : {train_iou:.5f} | ', end='')
         self.es_log['train_loss'].append(train_loss)
 
         if self.do_validation:
-            val_loss, val_pa, val_iou = self._valid_epoch(epoch)
+            val_loss, val_pa, val_iou, examples = self._valid_epoch(epoch)
             wandb.log({'Train Loss': train_loss, 'Train P.A': train_pa, 'Train IOU': train_iou,
-                                'Val Loss': val_loss, 'Val P.A': val_pa, 'Val IOU': val_iou})
+                                'Val Loss': val_loss, 'Val P.A': val_pa, 'Val IOU': val_iou, 'examples' : examples})
         else:
             wandb.log(
-                {'Train Loss': train_loss, 'Train P.A': train_pa, 'Train IOU': train_iou})
+                {'Train Loss': train_loss, 'Train P.A': train_pa, 'Train IOU': train_iou, 'examples' : examples})
 
         if self.lr_scheduler is not None:
             self.lr_scheduler.step(val_loss)
@@ -99,28 +112,55 @@ class Trainer:
     def _valid_epoch(self, epoch: int):
         val_loss = 0
         val_metric = {f'{metric.__name__}': [] for metric in self.metric_fn}
-
+        examples = []
         self.model.eval()
         with torch.inference_mode():
-            for data in self.valid_data_loader:
+            for batch, data in enumerate(self.valid_data_loader):
                 x_test = data['input']
                 y_test = data['label']
-                x_test, y_test = x_test.to(self.device), y_test.to(self.device).long()
+                x_test, y_test = x_test.to(self.device), y_test.to(self.device)
                 y_pred = self.model(x_test)
                 loss = self.criterion(y_pred, y_test)
 
                 val_loss += loss.item()
 
-                met_ = {f'{metric.__name__}': metric(self.model, y_pred, y_train, self.device) for metric in self.metric_fn}
+                met_ = {f'{metric.__name__}': metric(self.model, y_pred, y_test, self.device) for metric in self.metric_fn}
                 for key, value in met_.items():
                     val_metric[key].append(value)
 
+                if batch < 4:
+                    pred_mask, target_mask = make_mask((torch.sigmoid(y_pred) > 0.5).float(), y_test)
+                    wandb_img = ((x_test.permute(0,2,3,1).cpu().numpy() * 0.5 + 0.5) * 255).astype('int')
+                    
+                    pred_mask = pred_mask.astype('int')
+                    target_mask = target_mask.astype('int')
+                    
+
+                    for i in range(wandb_img.shape[0]):
+                        
+
+                        class_labels = {
+                            0: "BackGround",
+                            1: "Damage",
+                            2: "Ground Truth"
+                        }
+
+                        class_set = wandb.Classes([
+                            {"name" : "BackGround", "id" : 0},
+                            {"name" : "Damage", "id" : 1},
+                            {"name" : "Ground Truth", "id" : 2}
+                        ])
+                        
+                        
+                        example = wandb.Image(wandb_img[i], masks={"Mask" : {"mask_data" : pred_mask[i], "class_labels" : class_labels}, "ground_truth" : {"mask_data" : target_mask[i], "class_labels" : class_labels}}, classes=class_set)
+                        examples.append(example)
+            
             val_loss /= len(self.valid_data_loader)
             iou, p_a = list(map(lambda x: sum(x) / len(self.valid_data_loader), val_metric.values()))
-            print(f'Val Loss : {val_loss:.5f} | Val P.A : {p_a:.5f}% | Val IOU : {iou:.5f} | ', end='')
+            print(f'Val Loss : {val_loss:.5f} | Val P.A : {p_a:.2f}% | Val IOU : {iou:.5f} | ', end='')
             self.es_log['val_loss'].append(val_loss)
 
-            return val_loss, p_a, iou
+            return val_loss, p_a, iou, examples
 
     def train(self):
         for epoch in range(self.epochs):
@@ -137,8 +177,9 @@ class Trainer:
         wandb.finish()
 
     def _save_checkpoint(self, epoch, save_best=False):
-        filename = str(self.save_dir / 'checkpoint-epoch{}.pth'.format(epoch))
+            
+        filename = str(self.save_dir / 'Epoch_{}.pth'.format(epoch))
         torch.save(self.model.state_dict(), filename)
         if save_best:
-            best_path = str(self.save_dir / 'model_best.pth')
+            best_path = str(self.save_dir / 'Model_best.pth')
             torch.save(self.model.state_dict(), best_path)
