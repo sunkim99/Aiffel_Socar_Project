@@ -39,13 +39,16 @@ class Trainer:
         
 
         self.save_dir = save_dir
+        
         self.idx = 1
         while Path(self.save_dir).is_dir() == True:
-            self.save_dir = re.sub('[0-9]+',f'{self.idx}', self.save_dir)
+            self.save_dir[-2] = self.idx
             self.idx += 1
         
         self.save_dir = Path(self.save_dir)
         self.save_dir.mkdir(parents=True, exist_ok=True)
+
+        self.dir = str(self.save_dir)
 
 
         self.es_log = {'train_loss' : [], 'val_loss' : []}
@@ -150,8 +153,6 @@ class Trainer:
                             {"name" : "Ground Truth", "id" : 2}
                         ])
                         
-                        print(wandb_img.shape, pred_mask.shape, target_mask.shape)
-
                         example = wandb.Image(wandb_img[i], masks={"Mask" : {"mask_data" : pred_mask[i], "class_labels" : class_labels}, "ground_truth" : {"mask_data" : target_mask[i], "class_labels" : class_labels}}, classes=class_set)
                         examples.append(example)
             
