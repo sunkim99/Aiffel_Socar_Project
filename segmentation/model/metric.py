@@ -12,14 +12,23 @@ def IOUscore(model: torch.nn.Module, outputs: torch.Tensor, labels: torch.Tensor
     Return
      : IOU score
     """
+
+    iou = []
     outputs = (torch.sigmoid(outputs.float()) > 0.5).float()
-    outputs= outputs.squeeze(1)
-    labels = labels.squeeze(1)
+    
+    for idx in range(outputs.shape[0]):
+        output = outputs[idx]
+        target = labels[idx]
 
-    intersection = torch.logical_and(outputs, labels).float()
-    union = torch.logical_or(outputs, labels).float()
+        intersection = torch.logical_and(output, target).float().sum((1,2))
+        union = torch.logical_or(output, target).float().sum((1,2))
 
-    return ((intersection.sum((1,2))) / (union.sum((1,2)) + 1e-6)).mean()
+        if union == 0:
+            pass
+        else:
+            iou.append(float(intersection) / float(max(union, 1)))
+
+    return sum(iou)
 
 
 def PixelAccuracy(model: torch.nn.Module, outputs: torch.Tensor, labels: torch.Tensor, device: str = 'cuda:0') -> torch.Tensor:
