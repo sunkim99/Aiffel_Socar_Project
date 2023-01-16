@@ -61,14 +61,13 @@ class Custom_dataset(torch.utils.data.Dataset):
             
             image = image.float()
             label = label.float()
-#             data_img /= 255
             
         data = {'name': name, 'input' : image, 'label' : label}
         
         return data
 
 
-def get_dataloader(data_dir_: str, transform_: A.Compose, batch_size: int) -> DataLoader:
+def get_dataloader(data_dir_: str, transform_: A.Compose, batch_size: int, shuffle: bool) -> DataLoader:
     """
     Description
      : A function that makes a dataloader.
@@ -81,4 +80,4 @@ def get_dataloader(data_dir_: str, transform_: A.Compose, batch_size: int) -> Da
     Return
      : DataLoader 
     """
-    return DataLoader(Custom_dataset(data_dir=data_dir_, transform=transform_), batch_size=batch_size, shuffle=True, drop_last=True)
+    return DataLoader(Custom_dataset(data_dir=data_dir_, transform=transform_), batch_size=batch_size, shuffle=shuffle, drop_last=True)

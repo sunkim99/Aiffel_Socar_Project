@@ -37,24 +37,23 @@ class Trainer:
 
         self.epochs = len_epoch
         
-
+        # 모델 저장 경로
         self.save_dir = save_dir
         
         self.idx = 1
         while Path(self.save_dir).is_dir() == True:
-            self.save_dir = self.save_dir[:-2] + str(self.idx) + self.save_dir[-1:]
+            self.save_dir = re.sub('ver[0-9]+', f'ver{self.idx}', self.save_dir)
             self.idx += 1
         
         self.save_dir = Path(self.save_dir)
         self.save_dir.mkdir(parents=True, exist_ok=True)
-
         self.dir = str(self.save_dir)
 
 
         self.es_log = {'train_loss' : [], 'val_loss' : []}
 
         self.not_improved = 0
-        self.early_stop = 30
+        self.early_stop = 20
         self.save_period = 5
         self.mnt_best = np.inf
 
@@ -82,7 +81,8 @@ class Trainer:
 
 
         train_loss /= len(self.data_loader)
-        train_iou, train_pa = list(map(lambda x: sum(x) / len(self.data_loader), train_metric.values()))
+        _, train_pa = list(map(lambda x: sum(x) / len(self.data_loader), train_metric.values()))
+        train_iou = np.nanmean(train_metric['IOUscore'])
         print(f'Train Loss : {train_loss:.5f} | Train P.A : {train_pa:.2f}% | Train IOU : {train_iou:.5f} | ', end='')
         self.es_log['train_loss'].append(train_loss)
 
@@ -108,7 +108,8 @@ class Trainer:
         else:
             self.not_improved_count += 1
 
-        if epoch % self.save_period == 0:
+        # save_period마다 저장 혹은 best 갱신할 때마다 저장
+        if epoch % self.save_period == 0 or best:
             self._save_checkpoint(epoch, save_best=best)
 
     def _valid_epoch(self, epoch: int):
@@ -132,32 +133,34 @@ class Trainer:
 
                 if batch < 4:
                     pred_mask, target_mask = make_mask((torch.sigmoid(y_pred) > 0.5).float(), y_test)
-                    wandb_img = ((x_test.permute(0,2,3,1).cpu().numpy() * 0.5 + 0.5) * 255).astype('int')
-                    
+                    for i in range(x_test.shape[0]):
+                        x_test[i][0] = x_test[i][0] * 0.229 + 0.485
+                        x_test[i][1] = x_test[i][1] * 0.224 + 0.456
+                        x_test[i][2] = x_test[i][2] * 0.225 + 0.406
+
+                    wandb_img = ((x_test.permute(0,2,3,1).cpu().numpy()) * 255).astype('int')
                     pred_mask = pred_mask.astype('int')
-                    target_mask = target_mask.astype('int')
-                    
+                    target_mask = (target_mask).astype('int')
 
-                    for i in range(wandb_img.shape[0]):
-                        
+                    class_labels = {
+                        0: "BackGround",
+                        1: "Damage",
+                        2: "Ground Truth"
+                    }
 
-                        class_labels = {
-                            0: "BackGround",
-                            1: "Damage",
-                            2: "Ground Truth"
-                        }
-
-                        class_set = wandb.Classes([
+                    class_set = wandb.Classes([
                             {"name" : "BackGround", "id" : 0},
                             {"name" : "Damage", "id" : 1},
                             {"name" : "Ground Truth", "id" : 2}
                         ])
-                        
+
+                    for i in range(4):
                         example = wandb.Image(wandb_img[i], masks={"Mask" : {"mask_data" : pred_mask[i], "class_labels" : class_labels}, "ground_truth" : {"mask_data" : target_mask[i], "class_labels" : class_labels}}, classes=class_set)
                         examples.append(example)
             
             val_loss /= len(self.valid_data_loader)
-            iou, p_a = list(map(lambda x: sum(x) / len(self.valid_data_loader), val_metric.values()))
+            _, p_a = list(map(lambda x: sum(x) / len(self.valid_data_loader), val_metric.values()))
+            iou = np.nanmean(val_metric['IOUscore'])
             print(f'Val Loss : {val_loss:.5f} | Val P.A : {p_a:.2f}% | Val IOU : {iou:.5f} | ', end='')
             self.es_log['val_loss'].append(val_loss)
 

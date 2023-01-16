@@ -1,6 +1,6 @@
 import torch
 
-def IOUscore(model: torch.nn.Module, outputs: torch.Tensor, labels: torch.Tensor, device: str = 'cuda:0') -> torch.Tensor:
+def IOUscore(model: torch.nn.Module, pred: torch.Tensor, target: torch.Tensor, device: str = 'cuda:0') -> torch.Tensor:
     """
     Description
      : A function to calculate IOU score.
@@ -12,21 +12,21 @@ def IOUscore(model: torch.nn.Module, outputs: torch.Tensor, labels: torch.Tensor
     Return
      : IOU score
     """
-
-    iou = []
-    outputs = (torch.sigmoid(outputs.float()) > 0.5).float()
     
-    for idx in range(outputs.shape[0]):
-        output = outputs[idx]
-        target = labels[idx]
+    iou = []
+    pred = (torch.sigmoid(pred) > 0.5).float()
+    pred = pred.view(-1)
+    target = target.view(-1)
 
-        intersection = torch.logical_and(output, target).float().sum((1,2))
-        union = torch.logical_or(output, target).float().sum((1,2))
+    pred_inds = pred == 1
+    target_inds = target == 1
+    intersection = (pred_inds[target_inds]).long().sum().data.cpu().item()
+    union = pred_inds.long().sum().data.cpu().item() + target_inds.long().sum().data.cpu().item() - intersection
 
-        if union == 0:
-            pass
-        else:
-            iou.append(float(intersection) / float(max(union, 1)))
+    if union == 0:
+        iou.append(float('nan'))  # If there is no ground truth, do not include in evaluation
+    else:
+        iou.append(float(intersection) / float(max(union, 1)))
 
     return sum(iou)
 
