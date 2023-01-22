@@ -13,8 +13,8 @@ def IOUscore(model: torch.nn.Module, pred: torch.Tensor, target: torch.Tensor, d
      : IOU score
     """
     
-    iou = []
-    pred = (torch.sigmoid(pred) > 0.5).float()
+    iou = 0
+    # pred = (torch.sigmoid(pred) > 0.5).float()
     pred = pred.view(-1)
     target = target.view(-1)
 
@@ -24,11 +24,11 @@ def IOUscore(model: torch.nn.Module, pred: torch.Tensor, target: torch.Tensor, d
     union = pred_inds.long().sum().data.cpu().item() + target_inds.long().sum().data.cpu().item() - intersection
 
     if union == 0:
-        iou.append(float('nan'))  # If there is no ground truth, do not include in evaluation
+        iou = float('nan')  # If there is no ground truth, do not include in evaluation
     else:
-        iou.append(float(intersection) / float(max(union, 1)))
+        iou = float(intersection) / float(max(union, 1))
 
-    return sum(iou)
+    return iou
 
 
 def PixelAccuracy(model: torch.nn.Module, outputs: torch.Tensor, labels: torch.Tensor, device: str = 'cuda:0') -> torch.Tensor:
