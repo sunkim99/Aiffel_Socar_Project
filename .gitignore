@@ -4,3 +4,4 @@ segmentation/saved
 segmentation/dataset_2
 classification/raw_data
 segmentation/main_2.ipynb
+segmentation/model/__pycache__/
