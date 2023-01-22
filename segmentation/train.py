@@ -39,8 +39,8 @@ class Trainer:
         self.optimizer = optimizer
 
         self.epochs = len_epoch
-        self.mean = mean
-        self.std = std
+        self.mean = mean if mean is not None else (0, 0, 0)
+        self.std = std if std is not None else (1, 1, 1)
         
         # 모델 저장 경로
         self.save_dir = save_dir
@@ -91,10 +91,10 @@ class Trainer:
         if self.do_validation:
             val_loss, val_pa, val_iou, examples = self._valid_epoch(epoch)
             wandb.log({'Train Loss': train_loss, 'Train P.A': train_pa, 'Train IOU': train_iou,
-                                'Val Loss': val_loss, 'Val P.A': val_pa, 'Val IOU': val_iou, 'examples' : examples})
+                                'Val Loss': val_loss, 'Val P.A': val_pa, 'Val IOU': val_iou, 'Examples' : examples})
         else:
             wandb.log(
-                {'Train Loss': train_loss, 'Train P.A': train_pa, 'Train IOU': train_iou, 'examples' : examples})
+                {'Train Loss': train_loss, 'Train P.A': train_pa, 'Train IOU': train_iou, 'Examples' : examples})
 
         if self.lr_scheduler is not None:
             self.lr_scheduler.step(val_loss)
