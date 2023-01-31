@@ -5,3 +5,7 @@ segmentation/dataset_2
 classification/raw_data
 segmentation/main_2.ipynb
 segmentation/model/__pycache__/
+classification/Dfl_Resnet50.ipynb
+classification/Dfl_Vgg16.ipynb
+visualization___.ipynb
+tmp.ipynb
