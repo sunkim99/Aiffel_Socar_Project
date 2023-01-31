@@ -2,28 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torchvision
-from torchvision.models import VGG16_BN_Weights
-    
-
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import matplotlib.pyplot as plt
-import torchvision
-import torch.optim as optim
-import torchmetrics as metrics
-import os, sys, cv2, glob
-import numpy as np
-import wandb
-
-from torch.utils.data import Dataset
-from torchvision import datasets
-from torchvision.datasets import ImageFolder
-from torch.utils.data import DataLoader
-from torchvision.transforms import transforms
-from torch.utils.data import DataLoader, random_split
-from tqdm import tqdm
-
+# from torchvision.models import VGG16_BN_Weights
 
 
 class DFL_VGG16(nn.Module):
