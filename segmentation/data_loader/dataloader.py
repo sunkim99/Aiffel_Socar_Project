@@ -60,7 +60,6 @@ class Custom_dataset(torch.utils.data.Dataset):
         # This problem is not came from its original size, but its extension.
         if image.shape[:2] != label.shape:
             image = image.transpose(1,0,2)
-            print(name)
         
         # If Image's ndim is not 3, then extend one dimension. 
         if label.ndim == 2:
