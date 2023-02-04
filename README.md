@@ -1,11 +1,11 @@
 
 # Aiffel X Socar 
-### 제 3차 해커톤 : AIFFELTHON
+#### 제 3차 해커톤 : AIFFELTHON
 
 
 > TEAM : link
 
-## 차량 파손 탐지 
+## 주제 : 차량 파손 탐지 
 
 
 
