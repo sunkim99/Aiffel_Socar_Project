@@ -46,6 +46,7 @@ class DFL_VGG16(nn.Module):
 		# max pool은 최대풀링에만 영향을 줘서
 		# avg는 back propagation 중 모든 필터에 영향을 준다
 
+
 	def forward(self, x):
 		batchsize = x.size(0)
 		

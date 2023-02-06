@@ -1,11 +1,6 @@
-segmentation/dataset
 segmentation/wandb
 segmentation/saved
-segmentation/dataset_2
-classification/raw_data
-segmentation/main_2.ipynb
-segmentation/model/__pycache__/
+classification/DFL_VGG16_Model.pth
+classification/DFL_RESNET50_Model.pth
+tmp.ipynb
 visualization___.ipynb
-classification/DFL_Model.pth
-classification/Dfl_Resnet50.ipynb
-classification/Dfl_Vgg16.ipynb
