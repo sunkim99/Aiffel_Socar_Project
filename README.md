@@ -1,6 +1,9 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Aiffel X Socar&fontSize=90" /> 
+
 
 # Aiffel X Socar
+
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Aiffel X Socar&fontSize=90"/> 
 
 #### 제 3차 해커톤 : AIFFELTHON
 
