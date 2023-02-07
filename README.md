@@ -8,7 +8,6 @@
 
 
 
-- - -
 
 ### 1. 프로젝트 개요
 + 문제 제기
@@ -52,8 +51,8 @@
                     <img src ='./readme_image/classification_result.png' width='700px'>
                     <figcaption> val_acc : 0.887, F1 score : 0.904 </caption>
                 </figure> 
-
-                - Clssification 학습을 거친 후 파손/오염/정상 이미지의 분포
+                </br>
+                - Clssification 학습을 거친 후 파손/ 오염/ 정상 이미지의 분포
                     <figure align = 'center'>
                         <img src = './readme_image/tsne.jpg' width='500pz'>
                     </figure>
@@ -74,11 +73,12 @@
             <figcaption> U-Net 구조 </caption>
         </figure>
 
+        </br>
         - 이미지 양이 많지 않은 현재 데이터셋에 적합하다고 판단
-         <figure align = 'center'>
-            <img src ='./readme_image/dataset_.jpg' width='600px'></br>
-            <figcaption> 제공받은 데이터셋의 정상/파손 비율 </caption>
-        </figure>
+            <figure align = 'center'>
+                <img src ='./readme_image/dataset_.jpg' width='600px'></br>
+                <figcaption> 제공받은 데이터셋의 정상/파손 비율 </caption>
+            </figure>
 
     + 수행 과정
         1. Hyperparameter tuning
@@ -112,6 +112,7 @@
                 <img src ='./readme_image/unet-backbone-result.jpg' width='700px'>
                 <figcaption> IOU Score 최대 성능</figcaption>
             </figure>
+            </br>
             <figure align ='center'>
                 <img src ='./readme_image/unet-backbone-result_2.jpg' width='700px'>
                 <figcaption> IOU Score 최대 성능</figcaption>
