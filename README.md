@@ -1,9 +1,7 @@
 # Aiffel X Socar
-
 #### 제 3차 해커톤 : AIFFELTHON
 
 # <span style="background-color:#E6E6FA"> 주제 : 차량 파손 탐지 </span>
-
 ## TEAM : **이음**
 
 
