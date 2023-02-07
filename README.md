@@ -44,7 +44,7 @@
             + 결과(그래프)
                 <span style = 'color: red'> 원본 데이터는 비공개</span>
                 <figure align = 'center'>
-                    <img src ='./readme_image/classification_result.png' width='700px'>
+                    <img src ='./readme_image/classification_result.png' width='700px'></br>
                     <figcaption> val_acc : 0.887, F1 score : 0.904 </caption>
                 </figure> 
 
