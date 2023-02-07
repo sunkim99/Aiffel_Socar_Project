@@ -1,12 +1,8 @@
 # Aiffel X Socar
-
 #### 제 3차 해커톤 : AIFFELTHON
 
 # <span style="background-color:#E6E6FA"> 주제 : 차량 파손 탐지 </span>
-
 ## TEAM : **이음**
-
-
 
 
 ### 1. 프로젝트 개요
@@ -48,7 +44,7 @@
             + 결과(그래프)
                 <span style = 'color: red'> 원본 데이터는 비공개</span>
                 <figure align = 'center'>
-                    <img src ='./readme_image/classification_result.png' width='700px'>
+                    <img src ='./readme_image/classification_result.png' width='700px'></br>
                     <figcaption> val_acc : 0.887, F1 score : 0.904 </caption>
                 </figure> 
                 </br>
@@ -69,7 +65,7 @@
     + U-Net 모델 사용
         적은양의 데이터셋 에도 좋은 성능을 보여주는 특징으로 Baseline 모델로 선택
         <figure align = 'center'>
-            <img src ='./readme_image/u_net.png' width='600px'></br>
+            <img src ='./readme_image/u_net.png' width='600px'> </br>
             <figcaption> U-Net 구조 </caption>
         </figure>
 
@@ -89,7 +85,7 @@
 ### 3. 실험 결과
 + #### U-Net 하이퍼파라미터 튜닝 결과
 <figure align ='center'>
-    <img src ='./readme_image/unet-hypertuning.png' width='700px'>
+    <img src ='./readme_image/unet-hypertuning.png' width='700px'></br>
     <figcaption> IOU Score 최대 성능</figcaption>
 </figure>
 
@@ -107,27 +103,27 @@
 
     + ###### Backbone 모델 적용 결과
         + U-Net
-            - 
+        
             <figure align ='center'>
-                <img src ='./readme_image/unet-backbone-result.jpg' width='700px'>
+                <img src ='./readme_image/unet-backbone-result.jpg' width='700px'></br>
                 <figcaption> IOU Score 최대 성능</figcaption>
             </figure>
             </br>
             <figure align ='center'>
-                <img src ='./readme_image/unet-backbone-result_2.jpg' width='700px'>
+                <img src ='./readme_image/unet-backbone-result_2.jpg' width='700px'></br>
                 <figcaption> IOU Score 최대 성능</figcaption>
             </figure>
 
         + DeeplabV3+
-            - 
+            
             <figure align ='center'>
-                <img src ='./readme_image/deeplab_result.jpg' width='700px'>
+                <img src ='./readme_image/deeplab_result.jpg' width='700px'></br>
                 <figcaption> IOU Score 최대 성능 </figcaption>
             </figure>
 
         + 마스킹 이미지당 파손 비율
             <figure align ='center'>
-                <img src ='./readme_image/damage_ratio.jpg' width='500px'>
+                <img src ='./readme_image/damage_ratio.jpg' width='500px'></br>
                 <figcaption>scratch>dent>spacing 순으로 파손 영역이 큰것을 확인 </figcaption>
             </figure>
 
@@ -156,7 +152,7 @@
 + ###### DFL-CNN
     
     <figure align ='center'>
-        <img src ='./readme_image/dfl_structure.jpg' width='300px'>
+        <img src ='./readme_image/dfl_structure.jpg' width='300px'></br>
         <figcaption> DFL 구조</figcaption>
     </figure>
 
@@ -166,14 +162,14 @@
     - F1 Score : 0.69
 
     <figure align ='center'>
-        <img src ='./readme_image/dfl-result.jpg' width='300px'>
+        <img src ='./readme_image/dfl-result.jpg' width='300px'></br>
         <figcaption> spacing 기준 </figcaption>
     </figure>
 
 
 + ###### PMG
     <figure align ='center'>
-        <img src ='./readme_image/pmg_structure.jpg' width='400px'>
+        <img src ='./readme_image/pmg_structure.jpg' width='400px'></br>
         <figcaption> PMG 구조</figcaption>
     </figure>
 
@@ -183,7 +179,7 @@
     - F1 Score : 0.71  
 
     <figure align ='center'>
-        <img src ='./readme_image/pmg_result.jpg' width='300px'>
+        <img src ='./readme_image/pmg_result.jpg' width='300px'></br>
         <figcaption> spacing 기준 </figcaption>
     </figure>
 
@@ -191,12 +187,12 @@
 ### 4. 프로젝트 결과
 - U-Net, U-Net(backbone), DeeplabV3+(backbone)
     <figure align ='center'>
-        <img src ='./readme_image/result_1.jpg' width='300px'>
+        <img src ='./readme_image/result_1.jpg' width='300px'></br>
     </figure>
 
 - backbone 적용 모델중  최고 성능, DFL-CNN, PMG
     <figure align ='center'>
-        <img src ='./readme_image/result_2.jpg' width='300px'>
+        <img src ='./readme_image/result_2.jpg' width='300px'></br>
     </figure>
 
 
@@ -216,7 +212,7 @@
 - - -
 <div align="left">
     <img src="https://img.shields.io/badge/Pytorch-EE4C2C?style=flat&logo=Pytorch&logoColor=white" />
-	<img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white"/>
+	<img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=Python&logoColor=white" />
 	<img src="https://img.shields.io/badge/Jupyter-F37626?style=flat&logo=Jupyter&logoColor=white" />
 </div>
 
