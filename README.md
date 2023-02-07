@@ -49,10 +49,11 @@
                 </figure> 
 
 
-		- Clssification 학습을 거친 후 파손/오염/정상 이미지의 분포
-		    <figure align = 'center'>
-			<img src = './readme_image/tsne.jpg' width='500pz'>
-		    </figure>
+	- Clssification 학습을 거친 후 파손/오염/정상 이미지의 분포\
+	
+	    <figure align = 'center'>
+		<img src = './readme_image/tsne.jpg' width='500pz'>
+	    </figure>
 
 + ##### Segmentation
     + 파손 영역 탐지
