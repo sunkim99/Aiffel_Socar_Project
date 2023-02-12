@@ -4,3 +4,4 @@ classification/DFL_VGG16_Model.pth
 classification/DFL_RESNET50_Model.pth
 tmp.ipynb
 visualization___.ipynb
+data_visualization/result
